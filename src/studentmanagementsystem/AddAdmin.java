@@ -146,6 +146,8 @@ public class AddAdmin extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try
         {
+            String []buttons={"No","Yes"};
+            int n;
             username=tf1.getText();
             if(username.isEmpty()==true)
             {
@@ -171,15 +173,34 @@ public class AddAdmin extends javax.swing.JInternalFrame {
             rs.last();
                 if(rs.getRow()==0)
                 {
-                    sql="insert into Admin values(?,?)";
-                    st=cn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-                    st.setString(1,username);
-                    st.setString(2,Password);
-                    st.executeUpdate();
-                    JOptionPane.showMessageDialog(this,(username+" as Admin Added Succesfully"));
-                    tf1.setText("");
-                    tf2.setText("");
-                    this.setVisible(false);
+                    
+                          n=JOptionPane.showOptionDialog(this,
+                          "Are You Sure You want to add this??","",
+                          JOptionPane.DEFAULT_OPTION,
+                          JOptionPane.QUESTION_MESSAGE,
+                          null,
+                          buttons,buttons[0]
+                   );
+                        if(n==1)
+                        {
+                            sql="insert into Admin values(?,?)";
+                            st=cn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+                            st.setString(1,username);
+                            st.setString(2,Password);
+                            st.executeUpdate();
+                            JOptionPane.showMessageDialog(this,(username+" as Admin Added Succesfully"));
+                        
+                            tf1.setText("");
+                            tf2.setText("");
+                            this.setVisible(false);
+                            Close();
+                            
+                        }
+                            else
+                            {
+                            JOptionPane.showMessageDialog(this,"Choose Wisely");
+                            }
+                      
                 }
                     else
                     {

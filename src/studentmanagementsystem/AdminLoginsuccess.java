@@ -20,7 +20,7 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
     /**
      * Creates new form AdminLoginsuccess
      */
-    Connection cn;
+    /*Connection cn;
     PreparedStatement st;
     ResultSet rs;
     String sql;
@@ -39,9 +39,9 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
     public void Close()throws Exception
     {
         cn.close();
-    }
+    }*/
     public AdminLoginsuccess() {
-        MyConnection();
+       // MyConnection();
         initComponents();
         this.setLocation(300,100);
     }
@@ -130,6 +130,11 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
         jMenu1.add(jSeparator1);
 
         jMenuItem2.setText("Remove Admin");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
         jMenu1.add(jSeparator3);
 
@@ -234,7 +239,7 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
-            Close();
+            //Close();
             this.setVisible(false);
             new AdminLogin().show();
         }catch(Exception e)
@@ -242,6 +247,13 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,e);
         }
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        RemoveAdmin removeadmin=new RemoveAdmin();
+        jDesktopPane1.add(removeadmin);
+        removeadmin.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
