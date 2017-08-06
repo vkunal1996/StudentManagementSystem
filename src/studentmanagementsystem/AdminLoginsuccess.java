@@ -139,6 +139,11 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
         jMenu1.add(jSeparator3);
 
         jMenuItem3.setText("View Admin");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
         jMenu1.add(jSeparator12);
 
@@ -254,6 +259,13 @@ public class AdminLoginsuccess extends javax.swing.JFrame {
         jDesktopPane1.add(removeadmin);
         removeadmin.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        ViewAdmin viewadmin=new ViewAdmin();
+        jDesktopPane1.add(viewadmin);
+        viewadmin.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
